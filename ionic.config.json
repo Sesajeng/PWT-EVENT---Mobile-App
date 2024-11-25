@@ -1,0 +1,7 @@
+{
+  "name": "pwtevent",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
