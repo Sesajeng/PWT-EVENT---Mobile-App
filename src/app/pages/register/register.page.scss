@@ -1,0 +1,68 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+  }
+
+  .circle-left, .circle-right {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: #003366;
+    border-radius: 50%;
+  }
+
+  .circle-left {
+    left: 0;
+    top: 10%;
+  }
+
+  .circle-right {
+    right: 0;
+    bottom: 10%;
+  }
+
+  .form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 20px;
+    margin-top: 1em;
+  }
+
+  ion-item {
+    margin-bottom: 20px;
+  }
+
+  ion-button {
+    margin-top: 20px;
+    
+  }
+
+  p {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  a {
+    color: #003366;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }

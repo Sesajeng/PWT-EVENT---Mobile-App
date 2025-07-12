@@ -1,0 +1,39 @@
+/* admin.page.scss */
+:host {
+    --ion-background-color: #f4f4f9; /* Light background color */
+    --ion-text-color: #003366; /* Dark blue text color */
+    --ion-toolbar-background: #003366; /* Dark blue toolbar */
+    --ion-toolbar-color: white; /* White text on toolbar */
+    --ion-item-background: #ffffff; /* White background for items */
+    --ion-label-color: #003366; /* Dark blue labels */
+    --ion-button-primary-background: #003366; /* Dark blue buttons */
+    --ion-button-primary-color: white; /* White text on buttons */
+    --ion-select-interface-background: #ffffff; /* White background for select */
+    --ion-card-background: #ffffff; /* White background for card */
+    --ion-card-header-background: #003366; /* Dark blue card header */
+    --ion-card-header-color: white; /* White text in card header */
+    --ion-card-title-color: white; /* White title in card header */
+  }
+  
+  /* Customize ion-input fields */
+  ion-input {
+
+    --color: #003366;
+  }
+  
+  /* Customize ion-item borders and shadows */
+  ion-item {
+    --border-color: #003366;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Modify the button hover and active states */
+  ion-button {
+    --border-radius: 8px;
+    --background: #003366;
+    --background-activated: #0050A0;
+    --color: white;
+    --padding-start: 20px;
+    --padding-end: 20px;
+  }
+  

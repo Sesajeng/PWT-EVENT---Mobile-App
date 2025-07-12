@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Admin - Manage Events</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Add/Edit Event Form -->
+  <div class="event-form-container">
+    <ion-item>
+      <ion-label >Category</ion-label>
+      <ion-select [(ngModel)]="newEvent.categoryId">
+        <ion-select-option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Event Name</ion-label>
+      <ion-input [(ngModel)]="newEvent.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"></ion-label>
+      <ion-datetime [(ngModel)]="newEvent.date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Location</ion-label>
+      <ion-input [(ngModel)]="newEvent.location"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Ticket Price</ion-label>
+      <ion-input type="number" [(ngModel)]="newEvent.ticketPrice"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Ticket Stock</ion-label>
+      <ion-input type="number" [(ngModel)]="newEvent.ticketStock"></ion-input>
+    </ion-item>
+
+    <!-- Submit Button -->
+    <ion-button expand="block" (click)="createEvent()" class="submit-btn">
+      {{ isEditMode ? 'Save Changes' : 'Add Event' }}
+    </ion-button>
+  </div>
+
+  <!-- Event List Section -->
+  <div class="event-list-container">
+    <ion-list>
+      <ion-item *ngFor="let event of events" class="event-item">
+        <ion-label>
+          <h2 class="event-name">{{ event.name }}</h2>
+          <p class="event-details">
+            <span>{{ event.location }} | {{ event.date | date: 'short' }}</span>
+            <br />
+            <span>Price: {{ event.ticketPrice | currency: 'IDR' }} | Stock: {{ event.ticketStock }}</span>
+          </p>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button color="warning" (click)="editEvent(event)">
+            Edit
+          </ion-button>
+          <ion-button color="danger" (click)="deleteEvent(event.id)">
+            Delete
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

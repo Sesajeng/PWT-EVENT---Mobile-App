@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Manage Categories Event</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Add New Category Section -->
+  <div class="add-category-container">
+    <ion-item>
+      <ion-input
+        placeholder="Enter category name"
+        [(ngModel)]="newCategoryName"
+        clearInput
+        debounce="300"
+        required
+      ></ion-input>
+      <ion-button expand="block" color="primary" (click)="addCategory()">Add</ion-button>
+    </ion-item>
+  </div>
+
+  <!-- Categories List Section -->
+  <ion-list class="category-list">
+    <ion-item *ngFor="let category of categories" class="category-item">
+      <ion-label>{{ category.name }}</ion-label>
+      <ion-buttons slot="end">
+        <ion-button fill="clear" color="warning" (click)="editCategory(category)">
+          Edit
+        </ion-button>
+        <ion-button fill="clear" color="danger" (click)="deleteCategory(category.id)">
+          Delete
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>

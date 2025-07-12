@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Admin Transactions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Feedback Message -->
+  <ion-item *ngIf="message">
+    <ion-label color="primary" class="ion-text-center">{{ message }}</ion-label>
+  </ion-item>
+
+  <!-- Form for creating transactions -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="primary">Create Transaction</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-select [(ngModel)]="selectedCategory" placeholder="Select Category" (ionChange)="filterEventsByCategory()">
+          <ion-select-option *ngFor="let category of categories" [value]="category.id">
+            {{ category.name }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>User</ion-label>
+        <ion-select [(ngModel)]="transaction.user_id" placeholder="Select User">
+          <ion-select-option *ngFor="let user of users" [value]="user.id">
+            {{ user.email }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Event</ion-label>
+        <ion-select [(ngModel)]="transaction.event_id" placeholder="Select Event" (ionChange)="onEventChange()" [disabled]="!selectedCategory">
+          <ion-select-option *ngFor="let event of filteredEvents" [value]="event.id">
+            {{ event.name }} - {{ event.date }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Ticket Quantity</ion-label>
+        <ion-input
+          [(ngModel)]="transaction.ticket_quantity"
+          type="number"
+          min="1"
+          (ngModelChange)="calculateTotalPrice()"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Total Price</ion-label>
+        <ion-input
+          [value]="transaction.total_price"
+          readonly
+        ></ion-input>
+      </ion-item>
+
+      <ion-button expand="full" (click)="createTransaction()" [disabled]="!transaction.ticket_quantity || !transaction.event_id || !transaction.user_id">Create Transaction</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Transactions List -->
+  <ion-list>
+    <ion-item *ngFor="let transaction of transactions">
+      <ion-label>
+        <strong>User:</strong> {{ getUserEmail(transaction.user_id) }}<br />
+        <strong>Event:</strong> {{ getEventName(transaction.event_id) }}<br />
+        <strong>Total Price:</strong> Rp{{ transaction.total_price }}
+      </ion-label>
+      <ion-button slot="end" (click)="updateTransaction(transaction.id)">Update</ion-button>
+      <ion-button slot="end" color="danger" (click)="deleteTransaction(transaction.id)">
+        Delete
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

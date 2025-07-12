@@ -1,0 +1,44 @@
+.profile-container {
+  padding: 20px;
+}
+ion-toolbar {
+  padding: 0 16px;
+  --background: #003366; /* Primary theme color */
+  --color: white;
+}
+.profile-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.profile-info h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.profile-info p {
+  color: #555;
+  margin-top: 5px;
+}
+
+.user-role {
+  color: #003366; /* Adjust role color */
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.profile-card {
+  margin-top: 20px;
+}
+
+.logout-button {
+  margin-top: 20px;
+}

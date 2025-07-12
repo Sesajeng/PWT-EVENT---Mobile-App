@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="user-list">
+    <ion-item *ngFor="let user of users" class="user-item">
+      <ion-avatar slot="start">
+        <img src="assets/avatar.jpg" alt="User Avatar" />
+      </ion-avatar>
+      <ion-label class="user-info">
+        <h2>{{ user.name }}</h2>
+        <p class="user-email">{{ user.email }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,31 @@
+
+<ion-content class="ion-padding">
+  <!-- Banner Event -->
+  <div class="header-banner">
+    <img src="assets/Front.png" alt="Event Banner" style="width: 100%; height: auto;"/>
+  </div>
+  
+
+  <!-- Daftar Kategori -->
+  <h3 class="section-title">DAFTAR EVENT</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let category of categories; let i = index">
+        <ion-card>
+          <!-- Placeholder dengan Warna Berbeda -->
+          <img class="event-image" src="assets/Group 21.png" alt="Event Banner" />
+          <ion-card-header>
+            <ion-card-title>{{ category.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Tambahkan fungsi klik -->
+            <ion-button (click)="viewEventsByCategory(category.id, category.name)" 
+                        expand="block" size="small" color="primary" fill="outline">
+              Lihat Seluruh Event
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

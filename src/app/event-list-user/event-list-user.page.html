@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ selectedCategoryName }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pages/user"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let event of filteredEvents">
+        <ion-card class="event-card">
+          <img class="event-image" src="assets/Group 21.png" alt="Event Banner" />
+          <div class="ticket-btn-container">
+            <ion-button (click)="goToTicketDetail(event)" class="ticket-btn">
+              Beli Tiket
+            </ion-button>
+          </div>
+          <ion-card-content>
+            <ion-card-title class="event-name">{{ event.name }}</ion-card-title>
+            <p class="event-details">
+              <ion-icon name="calendar-outline"></ion-icon> {{ event.date | date }}
+            </p>
+            <p class="event-details">
+              <ion-icon name="location-outline"></ion-icon> {{ event.location }}
+            </p>
+            <p class="event-price">
+              Harga mulai <span class="price">{{ event.ticketPrice }}</span>
+              <span class="stock-status">{{ event.ticketStock > 0 ? 'Tiket Tersedia' : 'Habis' }}</span>
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

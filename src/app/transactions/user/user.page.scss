@@ -1,0 +1,40 @@
+.transaction-item {
+    margin-bottom: 16px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  .custom-toolbar {
+    padding: 0 16px;
+    background: #003366; /* Set the background to dark blue */
+    color: white; 
+  }
+  .transaction-header h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #003366;
+    margin: 0;
+  }
+  
+  .transaction-details p,
+  .transaction-footer p {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .transaction-item ion-label {
+    display: block;
+  }
+  
+  .transaction-item ion-icon {
+    margin-right: 8px;
+  }
+  
+  .transaction-item:hover {
+    background-color: #e1e1e1;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  

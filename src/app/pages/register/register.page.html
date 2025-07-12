@@ -1,0 +1,23 @@
+
+<ion-content>
+  <div class="register-container">
+    <div class="circle-left"></div>
+    <div class="form-container">
+      <ion-img src="assets/logo.png" alt="App Logo" style="width: 340px; height: 150px; vertical-align: middle; margin-right: 100px;"></ion-img>
+      <div class="logo">Register</div>
+      <form (ngSubmit)="register()">
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+        </ion-item>
+        <ion-button expand="full" type="submit" style="--background: #003366;">Register</ion-button>
+      </form>
+      <p>Already have an account? <a href="/login">Log in</a></p>
+    </div>
+    <div class="circle-right"></div>
+  </div>
+</ion-content>
